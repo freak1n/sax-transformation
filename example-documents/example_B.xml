@@ -1,6 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <products>
-	<product added-on="08-01-2014">
+	<product id="pr1" added-on="08-01-2014" category="CPU">
+		<producer name="Intel" />
 
+		<model name="i7 4960HQ" />
+
+		<description text="Awosome Processor" />
+
+		<product-specificaiton clock-speed="3.7 GHz"
+							cores="4" />
+
+		<price currency="USD">300</price>
+	</product>
+
+	<product id="pr2" added-on="08-01-2014" category="Keyboard">
+		<producer name="Logitech" />
+
+		<model name="k290" />
+
+		<description text="Comfort Gameboard" />
+
+		<product-specificaiton keyboard-layout="fullsize" />
+
+		<dimensions units="mm">
+			<length amount="459" />
+			<width amount="182.6" />
+			<height amount="20.4" />
+		</dimensions>
+
+		<weight units="g">500</weight>
+		<price currency="USD">300</price>
 	</product>
 </products>

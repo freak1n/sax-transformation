@@ -43,9 +43,14 @@
 			<height>20.4</height>
 		</dimensions>
 
+		<weight>
+			<units>g</units>
+			<amount>500</amount>
+		</weight>
+
 		<price>
-			<cost>30</cost>
 			<currency>USD</currency>
+			<cost>30</cost>
 		</price>
 	</product>
 
