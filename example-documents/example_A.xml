@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<products>
+	<product>
+		<category>CPU</category>
+		<producer>Intel</producer>
+		<model>i7 4960HQ</model>
+
+		<product-specificaiton>
+			<clock-speed>3.7 GHz</clock-speed>
+			<cores>4</cores>
+		</product-specificaiton>
+
+		<price>
+			<cost>300</cost>
+			<currency>USD</currency>
+		</price>
+	</product>
+
+	<product>
+		<category>Keyboard</category>
+		<producer>Logitech</producer>
+
+		<product-specificaiton>
+			<clock-speed>3.7 GHz</clock-speed>
+			<cores>4</cores>
+		</product-specificaiton>
+
+		<model>k290</model>
+
+		<price>
+			<cost>30</cost>
+			<currency>USD</currency>
+		</price>
+	</product>
+</products>
