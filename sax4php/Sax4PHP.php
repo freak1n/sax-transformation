@@ -144,6 +144,11 @@ class SaxParser {
 		}
 		$this->saxHandler->endDocumentHandler($this->sax);
 	}
+
+  function get_products_array()
+  {
+    return $this->saxHandler->get_products_array();
+  }
 }
 
 /**

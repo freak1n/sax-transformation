@@ -1,30 +1,54 @@
-<?php header('Content-type: text/xml');
+<?php // header('Content-type: text/xml');
 include_once('Sax4PHP.php');
 
 class MySaxHandler extends DefaultHandler {
+  private $products = array();
 
-  function startElement($name, $att)
+  function startElement($name, $attr)
   {
-  	echo "<start name='$name'/>\n";
+
+    if ($name == 'product')
+    {
+
+
+    }
   }
 
   function endElement($name)
   {
-  	echo "<end name='$name'/>\n";
+    if ($name = 'product')
+    {
+
+    }
   }
 
   function startDocument()
   {
-  	echo "<list>\n";
+  	echo "<products>\n";
   }
 
   function endDocument()
   {
-  	echo "</list>\n";
+  	echo "</products>\n";
+  }
+
+  function characters($strings)
+  {
+    // echo $strings;
+  }
+
+  function node($data)
+  {
+
+  }
+
+  function get_products_array()
+  {
+    return $this->products;
   }
 }
 
-$xml = file_get_contents('test.xml');
+$xml = file_get_contents('example_A.xml');
 $sax = new SaxParser(new MySaxHandler());
 
 try
@@ -39,3 +63,6 @@ catch(Exception $e)
 {
 	echo "Default exception >>", $e;
 }
+
+echo '<pre>';
+var_dump($sax->get_products_array());
