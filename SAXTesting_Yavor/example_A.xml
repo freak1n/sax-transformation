@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<products>
+	<!-- Product 1 -->
+	<product id="pr1">
+		<added-on>08-01-2014</added-on>
+		<category>CPU</category>
+
+		<producer>Intel</producer>
+
+		<model>i7 4960HQ</model>
+
+		<description>Awosome Processor</description>
+		<product-specificaiton>
+			<clock-speed>3.7 GHz</clock-speed>
+			<cores>4</cores>
+		</product-specificaiton>
+
+		<price>
+			<cost>300</cost>
+			<currency>USD</currency>
+		</price>
+	</product>
+
+	<!-- Product 2 -->
+	<product id="pr2">
+		<added-on>08-01-2014</added-on>
+		<category>Keyboard</category>
+
+		<producer>Logitech</producer>
+
+		<model>k290</model>
+
+		<description>Comfort Gameboard</description>
+
+		<product-specificaiton>
+			<keyboard-layout>fullsize</keyboard-layout>
+		</product-specificaiton>
+
+		<dimensions>
+			<unit>mm</unit>
+			<length>459</length>
+			<width>182.6</width>
+			<height>20.4</height>
+		</dimensions>
+
+		<weight>
+			<units>g</units>
+			<amount>500</amount>
+		</weight>
+
+		<price>
+			<currency>USD</currency>
+			<cost>30</cost>
+		</price>
+	</product>
+
+	<!-- Product 3 -->
+	<product id="pr3">
+		<added-on>08-01-2014</added-on>
+		<category>Laptop</category>
+
+		<producer>Acer</producer>
+
+		<model>5750ZG</model>
+
+		<description>Comfort Gameboard</description>
+		<product-specificaiton>
+			<cpu>Intel i5 3.2Ghz</cpu>
+			<hdd>500GB</hdd>
+			<video-card>ATI Radeon 4500HD</video-card>
+			<display>15.6 Wide Screen</display>
+		</product-specificaiton>
+
+		<dimensions>
+			<unit>mm</unit>
+			<length>459</length>
+			<width>182.6</width>
+			<height>20.4</height>
+		</dimensions>
+
+		<price>
+			<cost>30</cost>
+			<currency>USD</currency>
+		</price>
+	</product>
+</products>
