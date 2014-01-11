@@ -7,16 +7,12 @@
 			<feature name="CPU">Intel Core i5-3230M</feature>
 			<feature name="RAM">4GB DDR 3</feature>
 		</features>
-
 		<dimensions>
 			<length unit="mm">459</length>
 			<width unit="mm">182.6</width>
 			<height unit="mm">20.4</height>
 			<weight unit="kg">2.4</weight>
 		</dimensions>
-		<price currency="BGN">
-			<cost>1139</cost>
-			<reduction>30</reduction>
-		</price>
+		<price currency="BGN">1139</price>
 	</product>
 </products>
