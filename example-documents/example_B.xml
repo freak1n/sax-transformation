@@ -1,33 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <products>
-	<product id="pr1" added-on="08-01-2014" category="CPU">
-		<producer name="Intel" />
+	<!-- Product 1 -->
+	<product id="pr1" added-on="08-01-2014" category="Laptop" producer="HP" model="ProBook 450">
+		<description>Good Laptop for Games</description>
+		<features>
+			<feature name="CPU">Intel Core i5-3230M</feature>
+			<feature name="RAM">4GB DDR 3</feature>
+		</features>
 
-		<model name="i7 4960HQ" />
-
-		<description text="Awosome Processor" />
-
-		<product-specificaiton clock-speed="3.7 GHz" cores="4" />
-
-		<price currency="USD">300</price>
-	</product>
-
-	<product id="pr2" added-on="08-01-2014" category="Keyboard">
-		<producer name="Logitech" />
-
-		<model name="k290" />
-
-		<description text="Comfort Gameboard" />
-
-		<product-specificaiton keyboard-layout="fullsize" />
-
-		<dimensions units="mm">
-			<length amount="459" />
-			<width amount="182.6" />
-			<height amount="20.4" />
+		<dimensions>
+			<length unit="mm">459</length>
+			<width unit="mm">182.6</width>
+			<height unit="mm">20.4</height>
+			<weight unit="kg">2.4</weight>
 		</dimensions>
-
-		<weight units="g">500</weight>
-		<price currency="USD">300</price>
+		<price currency="BGN">
+			<cost>1139</cost>
+			<reduction>30</reduction>
+		</price>
 	</product>
 </products>
