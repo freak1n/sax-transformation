@@ -10,9 +10,8 @@ public class XmlConverter {
 	public static String oFileName = "result.xml";
 	
 	public static void main(String[] args) throws IOException, SAXException {
-		XMLReader p=XMLReaderFactory.createXMLReader();
+		XMLReader p = XMLReaderFactory.createXMLReader();
 		p.setContentHandler(new XmlConverterHandler());
 		p.parse(iFileName);
 	}
-
 }

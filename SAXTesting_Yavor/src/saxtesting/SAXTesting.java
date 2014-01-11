@@ -46,4 +46,9 @@ public class SAXTesting extends DefaultHandler {
     public void startElement(String uri, String localName, String qName, Attributes attr) throws SAXException {
         System.out.println("Element is " + qName);
     }
+    
+    @Override
+    public void endElement(String nameSpaceURI, String localName, String qName) {
+        writer.print("</"+qName+">");
+    }
 }

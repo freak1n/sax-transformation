@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<channel>
+<name>zaneacademy</name>
+<topic>
+<name>Java Language</name>
+<tutorial>equals and...</tutorial>
+<tutorial>Intro to RMI</tutorial>
+</topic>
+<topic>
+<name>Java Language 2</name>
+<tutorial>equalsnew.</tutorial>
+<tutorial>Intro</tutorial>
+</topic>
+</channel>

@@ -1,3 +1,5 @@
+package saxtesting_georgi;
+
 import saxtesting_georgi.XmlConverter;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
@@ -22,7 +24,7 @@ public class XmlConverterHandler extends DefaultHandler {
 		}
 	}
 	public void endDocument() {
-		writer.close();
+            writer.close();
 	}
 	public void startElement(String nameSpaceURI, String localName, String qName, Attributes atts) {
 		writer.print("<"+qName);
