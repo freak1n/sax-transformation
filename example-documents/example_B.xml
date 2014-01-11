@@ -7,8 +7,7 @@
 
 		<description text="Awosome Processor" />
 
-		<product-specificaiton clock-speed="3.7 GHz"
-							cores="4" />
+		<product-specificaiton clock-speed="3.7 GHz" cores="4" />
 
 		<price currency="USD">300</price>
 	</product>

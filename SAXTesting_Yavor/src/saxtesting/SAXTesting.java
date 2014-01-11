@@ -49,6 +49,6 @@ public class SAXTesting extends DefaultHandler {
     
     @Override
     public void endElement(String nameSpaceURI, String localName, String qName) {
-        writer.print("</"+qName+">");
+        System.out.println("Hello");
     }
 }
