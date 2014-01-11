@@ -1,3 +1,5 @@
+package saxtesting_georgi;
+
 import java.io.IOException;
 import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
