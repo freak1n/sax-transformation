@@ -1,5 +1,0 @@
-<!ELEMENT products (product)>
-<!ELEMENT product (added-on, category, producer, model, description, features, dimensions, price) >
-<!ELEMENT description (#PCDATA)>
-<!ELEMENT features (feature)>
-<!ELEMENT feature (#PCDATA)>
