@@ -1,5 +1,5 @@
-<!DOCTYPE products SYSTEM "example_B.dtd">
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE products SYSTEM "example_B.dtd">
 <products>
 	<!-- Product 1 -->
 	<product id="pr1" added-on="08-01-2014" category="Laptop" producer="HP" model="ProBook 450">
