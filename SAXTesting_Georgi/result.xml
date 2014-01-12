@@ -1,14 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<channel>
-<name>zaneacademy</name>
-<topic>
-<name>Java Language</name>
-<tutorial>equals and...</tutorial>
-<tutorial>Intro to RMI</tutorial>
-</topic>
-<topic>
-<name>Java Language 2</name>
-<tutorial>equalsnew.</tutorial>
-<tutorial>Intro</tutorial>
-</topic>
-</channel>
+
+<products>
+    <product id="pr1">
+        <added-on>08-01-2014</added-on>
+        <category>Laptop</category>
+        <producer>HP</producer>
+        <model>ProBook 450</model>
+        <description>Good Laptop for Games</description>
+        <features>
+            <feature>
+                <feature-name>CPU</feature-name>
+                <feature-value>Intel Core i5-3230M</feature-value>
+            </feature>
+            <feature>
+                <feature-name>RAM</feature-name>
+                <feature-value>4GB DDR 3</feature-value>
+            </feature>
+        </features>
+        <dimensions>
+            <length>
+                <unit>mm</unit>
+                <value>459</value>
+            </length>
+            <width>
+                <unit>mm</unit>
+                <value>182.6</value>
+            </width>
+            <height>
+                <unit>mm</unit>
+                <value>20.4</value>
+            </height>
+            <weight>
+                <unit>kg</unit>
+                <value>2.4</value>
+            </weight>
+        </dimensions>
+        <price>
+            <currency>null</currency>
+            <cost>1139</cost>
+        </price>
+    </product>
+</products>

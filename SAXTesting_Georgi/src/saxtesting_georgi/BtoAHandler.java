@@ -13,7 +13,9 @@ public class BtoAHandler extends DefaultHandler {
 	
 	private PrintWriter writer;
 	private int indent = 0;
-	private boolean afterTextNode = false;
+	private boolean isAfterTextNode = false;
+	private boolean isDimention = false;
+	private boolean isFeature = false;
 	
 	public void startDocument(){
 		try {
@@ -30,20 +32,78 @@ public class BtoAHandler extends DefaultHandler {
 	}
 	public void startElement(String nameSpaceURI, String localName, String qName, Attributes atts) {
 		writer.print('\n'+repeat("    ", indent));
-		writer.print("<"+qName);
-		for (int i = 0; i < atts.getLength(); i++) {
-			writer.print(" " + atts.getQName(i) + "=\"" + atts.getValue(i) + "\"");
+
+		if(isDimention){
+			writer.print("<" + qName + ">");
+			convertAttributeToElement(atts, "unit");
+			writer.print("\n" + repeat("    ", indent+1) + "<value>");
 		}
-		writer.print(">");
+		else if(isFeature){
+			writer.println("<" + qName + ">");
+			if(atts.getValue("name") != null){
+				writer.println(repeat("    ", indent+1) + "<feature-name>" + atts.getValue("name") + "</feature-name>");
+			}
+			writer.print(repeat("    ", indent+1) + "<feature-value>");
+		}
+		else if(qName.endsWith("price")){
+			writer.println("<" + qName + ">");
+			if(atts.getValue("currency") != null){
+				writer.println(repeat("    ", indent+1) + "<currency>" + atts.getValue("currency") + "</currency>");
+			}
+			writer.print(repeat("    ", indent+1) + "<cost>");
+		}
+		else{
+			writer.print("<"+qName);
+			if(atts.getValue("id") != null){
+				writer.print(" id=\"" + atts.getValue("id") + "\"");
+			}
+			writer.print(">");
+
+			convertAttributeToElement(atts, "added-on");
+			convertAttributeToElement(atts, "category");
+			convertAttributeToElement(atts, "producer");
+			convertAttributeToElement(atts, "model");
+		}
+		
+		if (qName.endsWith("dimensions")){
+			isDimention = true;
+		}
+		else if(qName.endsWith("features")){
+			isFeature = true;
+		}
 		indent++;
 	}
 	public void endElement(String nameSpaceURI, String localName, String qName) {
 		indent--;
-		if (!afterTextNode){
+		if (qName.endsWith("dimensions")){
+			isDimention = false;
+			isAfterTextNode = false;
+		}
+		else if(qName.endsWith("features")){
+			isFeature = false;
+			isAfterTextNode = false;
+		}
+	
+		if (isFeature){
+			writer.print("</feature-value>");
 			writer.print('\n'+repeat("    ", indent));
 		}
+		else if (isDimention){
+			writer.print("</value>");
+			writer.print('\n'+repeat("    ", indent));
+		}
+		else if(qName.endsWith("price")){
+			writer.print("</cost>");
+			writer.print('\n'+repeat("    ", indent));
+			isAfterTextNode = false;
+		}
 		else{
-			afterTextNode = false;
+			if (!isAfterTextNode){
+				writer.print('\n'+repeat("    ", indent));
+			}
+			else{
+				isAfterTextNode = false;
+			}
 		}
 		writer.print("</"+qName+">");
 	}
@@ -52,7 +112,7 @@ public class BtoAHandler extends DefaultHandler {
 		{
 			writer.print(ch[i]);
 		}
-		afterTextNode = true;
+		isAfterTextNode = true;
 	}
 	
 	public String repeat(String str, int times){
@@ -60,5 +120,11 @@ public class BtoAHandler extends DefaultHandler {
 			return "";
 		}
 		return str + repeat(str, times-1);
+	}
+	
+	public void convertAttributeToElement(Attributes atts, String qName){
+		if(atts.getValue(qName) != null){
+			writer.print('\n' + repeat("    ", indent+1) + "<" + qName +">" + atts.getValue(qName) + "</" + qName + ">");
+		}
 	}
 }

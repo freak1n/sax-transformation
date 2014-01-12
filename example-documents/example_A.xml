@@ -48,8 +48,8 @@
 		</dimensions>
 
 		<price>
-			<cost>1139</cost>
 			<currency>BGN</currency>
+			<cost>1139</cost>
 		</price>
 	</product>
 </products>
