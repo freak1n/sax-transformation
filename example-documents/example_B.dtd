@@ -1,0 +1,24 @@
+<!ELEMENT products (product+)>
+<!ELEMENT product (description?, features?, dimensions?, price) >
+<!ELEMENT description (#PCDATA)>
+<!ELEMENT features (feature+)>
+<!ELEMENT feature (#PCDATA)>
+<!ELEMENT dimensions (length?, width?, height?, weight?)>
+<!ELEMENT length (#PCDATA)>
+<!ELEMENT width (#PCDATA)>
+<!ELEMENT height (#PCDATA)>
+<!ELEMENT weight (#PCDATA)>
+<!ELEMENT price (#PCDATA)>
+<!ATTLIST product
+    id			ID		#REQUIRED
+    added-on	CDATA	#IMPLIED
+	category	CDATA	#REQUIRED
+	producer	CDATA	#IMPLIED
+	model		CDATA	#IMPLIED
+>
+<!ATTLIST feature name CDATA #REQUIRED >
+<!ATTLIST length unit CDATA #REQUIRED >
+<!ATTLIST width unit CDATA #REQUIRED >
+<!ATTLIST height unit CDATA #REQUIRED >
+<!ATTLIST weight unit CDATA #REQUIRED >
+<!ATTLIST price currency CDATA #REQUIRED >
