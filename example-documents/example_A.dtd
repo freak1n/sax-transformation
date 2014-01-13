@@ -1,4 +1,4 @@
-<!ELEMENT products (product)>
+<!ELEMENT products (product*)>
 
 <!ELEMENT product (added-on, category, producer, model, description, features, dimensions, price)>
 
@@ -28,3 +28,5 @@
 <!ELEMENT price (currency, cost)>
 <!ELEMENT currency (#PCDATA)>
 <!ELEMENT cost (#PCDATA)>
+
+<!ATTLIST product id ID #REQUIRED>

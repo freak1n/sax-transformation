@@ -12,6 +12,6 @@ import org.xml.sax.helpers.DefaultHandler;
  *
  * @author Betty
  */
-public class TestHandler extends DefaultHandler {
+public class AtoBHandler extends DefaultHandler {
     
 }

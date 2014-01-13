@@ -17,13 +17,16 @@ import org.xml.sax.XMLReader;
  */
 public class SAXTesting extends DefaultHandler {
 
-    /**
-     * @param args the command line arguments
-     */
+    public static String iFileName = "../example-documents/example_A.xml";
+    public static String oFileName = "result.xml";
+    
     public static void main(String[] args) throws Exception {
         System.out.println("Here We Go ..");
-        SAXTesting readerObj = new SAXTesting();
-        readerObj.read(args[0]);
+        
+        XMLReader p = XMLReaderFactory.createXMLReader();
+        
+	p.setContentHandler(new AtoBHandler());
+	p.parse(iFileName);
     }
     
     public void read(String fileName) throws Exception {
