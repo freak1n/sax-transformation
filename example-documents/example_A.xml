@@ -1,38 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE products [
-	<!ELEMENT products (product*)>
-
-	<!ELEMENT product (added-on, category, producer, model, description, features, dimensions, price)>
-
-	<!ELEMENT added-on (#PCDATA)>
-
-	<!ELEMENT category (#PCDATA)>
-
-	<!ELEMENT producer (#PCDATA)>
-
-	<!ELEMENT model (#PCDATA)>
-
-	<!ELEMENT description (#PCDATA)>
-
-	<!ELEMENT features (feature)>
-
-	<!ELEMENT feature (feature-name, feature-value)>
-	<!ELEMENT feature-name (#PCDATA)>
-	<!ELEMENT feature-value (#PCDATA)>
-	<!ELEMENT dimensions (length, width, height, weight)>
-	<!ELEMENT length (unit, value)>
-	<!ELEMENT width (unit, value)>
-	<!ELEMENT height (unit, value)>
-	<!ELEMENT weight (unit, value)>
-	<!ELEMENT unit (#PCDATA)>
-	<!ELEMENT value (#PCDATA)>
-
-	<!ELEMENT price (currency, cost)>
-	<!ELEMENT currency (#PCDATA)>
-	<!ELEMENT cost (#PCDATA)>
-
-	<!ATTLIST product id ID #REQUIRED>
-]>
+<!DOCTYPE products SYSTEM "example_A.dtd">
 <products>
 	<!-- Product 1 -->
 	<product id="pr1">
