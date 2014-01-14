@@ -48,7 +48,7 @@ public class BtoAHandler extends DefaultHandler {
 		else if(qName.endsWith("price")){
 			writer.println("<" + qName + ">");
 			if(atts.getValue("currency") != null){
-				writer.println(repeat("    ", indent+1) + "<currency>" + atts.getValue("currency") + "</currency>");
+                            writer.println(repeat("    ", indent+1) + "<currency>" + atts.getValue("currency") + "</currency>");
 			}
 			writer.print(repeat("    ", indent+1) + "<cost>");
 		}
@@ -66,10 +66,10 @@ public class BtoAHandler extends DefaultHandler {
 		}
 		
 		if (qName.endsWith("dimensions")){
-			isDimention = true;
+                    isDimention = true;
 		}
 		else if(qName.endsWith("features")){
-			isFeature = true;
+                    isFeature = true;
 		}
 		indent++;
 	}
