@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<products>
+    <product id="pr1" added-on="08-01-2014" category="Laptop" producer="HP" model="ProBook 450">
+        <description>
+            Good Laptop for Games
+        </description>            CPU
+            Intel Core i5-3230M
+            RAM
+            4GB DDR 3
+            mm
+            459
+            mm
+            182.6
+            mm
+            20.4
+            kg
+            2.4
+            BGN
+            1139
+
+    </product>
+</products>
