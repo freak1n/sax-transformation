@@ -6,12 +6,46 @@
 
 package saxtesting;
 
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import org.xml.sax.Attributes;
 import org.xml.sax.helpers.DefaultHandler;
 
-/**
- *
- * @author Betty
- */
 public class AtoBHandler extends DefaultHandler {
+    private PrintWriter writer;
     
+    @Override
+    public void startDocument() {
+            try {
+                    writer = new PrintWriter(SAXTesting.oFileName, "UTF-8");
+                    writer.println("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
+            } catch (FileNotFoundException ex) {
+                    Logger.getLogger(AtoBHandler.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (UnsupportedEncodingException ex) {
+                    Logger.getLogger(AtoBHandler.class.getName()).log(Level.SEVERE, null, ex);
+            }
+    }
+    
+    @Override        
+    public void endDocument() {
+        
+    }
+    
+    @Override
+    public void startElement(String nameSpaceURI, String localName, String qName, Attributes atts) {
+        
+    }
+    
+    @Override
+    public void endElement(String nameSpaceURI, String localName, String qName) {
+        
+    }
+    
+    @Override
+    public void characters(char[] ch, int start, int length) {
+        
+    }
 }
