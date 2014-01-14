@@ -16,22 +16,25 @@ import org.xml.sax.helpers.DefaultHandler;
 
 public class AtoBHandler extends DefaultHandler {
     private PrintWriter writer;
+    private int indent = 0;
     
     @Override
     public void startDocument() {
             try {
                     writer = new PrintWriter(SAXTesting.oFileName, "UTF-8");
                     writer.println("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
-            } catch (FileNotFoundException ex) {
+            } 
+            catch (FileNotFoundException ex) {
                     Logger.getLogger(AtoBHandler.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (UnsupportedEncodingException ex) {
+            } 
+            catch (UnsupportedEncodingException ex) {
                     Logger.getLogger(AtoBHandler.class.getName()).log(Level.SEVERE, null, ex);
             }
     }
     
     @Override        
     public void endDocument() {
-        
+        writer.close();
     }
     
     @Override
@@ -47,5 +50,12 @@ public class AtoBHandler extends DefaultHandler {
     @Override
     public void characters(char[] ch, int start, int length) {
         
+    }
+    
+    public String repeat(String str, int times){
+        if (times < 1){
+                return "";
+        }
+        return str + repeat(str, times-1);
     }
 }
