@@ -21,6 +21,7 @@ public class BtoAHandler extends DefaultHandler {
 		try {
 			writer = new PrintWriter(SAXTransformator.oFileName, "UTF-8");
 			writer.println("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
+			writer.println("<!DOCTYPE products SYSTEM \"example_A.dtd\">");
 		} catch (FileNotFoundException ex) {
 			Logger.getLogger(BtoAHandler.class.getName()).log(Level.SEVERE, null, ex);
 		} catch (UnsupportedEncodingException ex) {
