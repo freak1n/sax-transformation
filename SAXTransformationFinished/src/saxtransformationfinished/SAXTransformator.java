@@ -5,10 +5,12 @@
  */
 
 package saxtransformationfinished;
-
+import saxtransformationfinished.XMLValidator;
+        
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import javax.xml.parsers.ParserConfigurationException;
 import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
 import org.xml.sax.helpers.XMLReaderFactory;
@@ -23,7 +25,7 @@ public class SAXTransformator {
     public static String oFileName;
     public static char iFileType;
         
-    public static void main(String[] args) throws IOException, SAXException {
+    public static void main(String[] args) throws IOException, SAXException, ParserConfigurationException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         System.out.print("Input file: ");
         iFileName = br.readLine();
@@ -39,13 +41,20 @@ public class SAXTransformator {
 			p.setContentHandler(new AtoBHandler());
                         System.out.println("hello");
 		}
-		if (iFileType == 'B' || iFileType == 'b'){
+                else if (iFileType == 'B' || iFileType == 'b'){
 			p.setContentHandler(new BtoAHandler());
 		}
 		else{
-//			throw new IllegalArgumentException("Input file type should be either A or B!");
+			throw new IllegalArgumentException("Input file type should be either A or B!");
 		}
-		p.parse(iFileName);
+                
+                if ( ! XMLValidator.validateWithDTDUsingSAX(iFileName)) {
+                    System.out.println("File is not validated");
+                }
+                else {
+                    p.parse(iFileName);
+                }
+		
     }
     
 }
