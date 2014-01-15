@@ -37,6 +37,7 @@ public class AtoBHandler extends DefaultHandler {
         try {
             writer = new PrintWriter(SAXTransformator.oFileName, "UTF-8");
             writer.println("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
+            writer.println("<!DOCTYPE products SYSTEM \"example_B.dtd\">");
         } 
         catch (FileNotFoundException ex) {
             Logger.getLogger(AtoBHandler.class.getName()).log(Level.SEVERE, null, ex);
