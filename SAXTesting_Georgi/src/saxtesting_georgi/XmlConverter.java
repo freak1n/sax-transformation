@@ -34,6 +34,6 @@ public class XmlConverter {
 		else{
 			throw new IllegalArgumentException("Input file type should be either A or B!");
 		}
-		p.parse(iFileName);
+		p.parse(iFileName); 
 	}
 }
