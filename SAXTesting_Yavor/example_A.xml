@@ -2,7 +2,59 @@
 <!DOCTYPE products SYSTEM "example_A.dtd">
 <products>
 	<!-- Product 1 -->
-	<product id="pr1">
+	<product id="pr2">
+		<added-on>08-01-2014</added-on>
+
+		<category>Laptop</category>
+
+		<producer>HP</producer>
+
+		<model>ProBook 451</model>
+
+		<description>Good Laptop for Games</description>
+
+		<features>
+			<feature>
+				<feature-name>CPU</feature-name>
+				<feature-value>Intel Core i5-3230M</feature-value>
+			</feature>
+
+			<feature>
+				<feature-name>RAM</feature-name>
+				<feature-value>4GB DDR 3</feature-value>
+			</feature>
+		</features>
+
+		<dimensions>
+			<length>
+				<unit>mm</unit>
+				<value>459</value>
+			</length>
+
+			<width>
+				<unit>mm</unit>
+				<value>182.6</value>
+			</width>
+
+			<height>
+				<unit>mm</unit>
+				<value>20.4</value>
+			</height>
+
+			<weight>
+				<unit>kg</unit>
+				<value>2.4</value>
+			</weight>
+		</dimensions>
+
+		<price>
+			<currency>BGN</currency>
+			<cost>1139</cost>
+		</price>
+	</product>
+
+		<!-- Product 1 -->
+	<product id="pr2">
 		<added-on>08-01-2014</added-on>
 
 		<category>Laptop</category>

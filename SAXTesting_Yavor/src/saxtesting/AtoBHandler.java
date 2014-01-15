@@ -22,7 +22,15 @@ public class AtoBHandler extends DefaultHandler {
     private boolean isCategory = false;
     private boolean isProducer = false;
     private boolean isModel = false;
-    private boolean isDescription;
+    private boolean isDescription = false;
+    private boolean isFeatureName = false;
+    private boolean isFeatureValue = false;
+    private boolean isDimenssion = false;
+    private boolean isUnit = false;
+    private boolean isCoustValue = false;
+    private boolean isValue = false;
+    private boolean isCurrency = false;
+    private boolean isCost = false;
     
     @Override
     public void startDocument() {
@@ -77,6 +85,57 @@ public class AtoBHandler extends DefaultHandler {
             writer.print(repeat("    ", this.indent));
             writer.print("<description>\n");
         }
+        
+        if (qName.equals("features")) {
+            writer.print(repeat("    ", this.indent));
+            writer.print("<features>\n");
+        }
+        
+        if (qName.equals("feature")) {
+            this.indent++;
+            writer.print(repeat("    ", this.indent));
+            writer.print("<feature ");
+        }
+        
+        if (qName.equals("feature-name")) {
+            this.isFeatureName = true;
+        }
+        
+        if (qName.equals("feature-value")) {
+            this.isFeatureValue = true;
+        }
+        
+        if (qName.equals("dimensions")) {
+            writer.print(repeat("    ", this.indent));
+            writer.print("<dimensions>\n");
+        }
+        
+        if (qName.equals("length") || qName.equals("width") || qName.equals("height") || qName.equals("weight")) {
+            this.isDimenssion = true;
+            writer.print(repeat("    ", this.indent+1));
+            writer.print("<"+qName+" ");
+        }
+        
+        if (qName.equals("unit")) {
+            this.isUnit = true;
+        }
+        
+        if (qName.equals("value")) {
+            this.isValue = true;
+        }
+        
+         if (qName.equals("price")) {
+            writer.print(repeat("    ", this.indent));
+            writer.print("<price ");
+        }
+         
+         if (qName.equals("currency")) {
+             this.isCurrency = true;
+         }
+         
+        if (qName.equals("cost")) {
+            this.isCost = true;
+        }
     }
        
     @Override
@@ -86,15 +145,40 @@ public class AtoBHandler extends DefaultHandler {
         }
         
         if (qName.equals("description")) {
-            
             writer.print(repeat("    ", this.indent));
-            writer.print("</"+qName+">");
+            writer.print("</"+qName+">\n");
         }
         
         if (qName.equals("product")) {
            this.indent--;
            writer.print('\n'+repeat("    ", this.indent));
            writer.print("</product>\n");
+           this.indent--;
+        }
+        
+        if (qName.equals("features")) {
+            writer.print(repeat("    ", this.indent));
+            writer.print("</features>\n");
+        }
+        
+        if (qName.equals("feature")) {
+            writer.print(repeat("    ", this.indent));
+            writer.print("</feature>\n");
+            this.indent--;
+        }
+        
+        if (qName.equals("dimensions")) {
+            writer.print(repeat("    ", this.indent));
+            writer.print("</dimensions>\n");
+        }
+        
+        if (qName.equals("length") || qName.equals("width") || qName.equals("height") || qName.equals("weight")) {
+            this.isDimenssion = true;
+            writer.print("<"+qName+">\n");            
+        }
+        
+        if (qName.equals("price")) {
+            writer.print("</price>");
         }
     }
     
@@ -105,8 +189,6 @@ public class AtoBHandler extends DefaultHandler {
         for (int i=start;i<(start+length);i++) {
             tmpString += ch[i];
         }
-	
-        System.out.println(tmpString);
         
         if (this.isAddedOn) {
             this.printStrToAttr("added-on", tmpString);
@@ -132,12 +214,52 @@ public class AtoBHandler extends DefaultHandler {
         if (this.isDescription) {
             writer.print(repeat("    ", this.indent+1));
             writer.print(tmpString + "\n");
+            isDescription = false;
+        }
+        
+        if (this.isFeatureName) {
+            this.printStrToAttr("name", tmpString);
+            writer.print(">\n");
+            this.isFeatureName = false;
+        }
+        
+        if (this.isFeatureValue) {
+            writer.print(repeat("    ", this.indent+1));
+            writer.print(tmpString + "\n");
+            isFeatureValue = false;
+        }
+        
+        if (this.isUnit && this.isDimenssion) {
+            this.printStrToAttr("unit", tmpString);
+            this.isUnit = false;
+            writer.print(">");
+        }
+        
+        if (this.isCoustValue && this.isDimenssion) {
+            writer.print(tmpString);
+            this.isCoustValue = false;
+        }
+        
+        if (this.isValue) {
+            writer.print(tmpString);
+            this.isValue = false;
+        }
+        
+        if (this.isCurrency) {
+            this.printStrToAttr("currency", "BGN");
+            writer.print(">");
+            this.isCurrency = false;
+        }
+        
+        if (this.isCost) {
+            writer.print(tmpString);
+            this.isCost = false;
         }
     }
     
     public void printStrToAttr (String attrName, String attrValue) {
         writer.print(attrName + "=\"" + attrValue + "\"");
-        if ( ! attrName.equals("model")) {
+        if ( ! attrName.equals("model") &&  ! attrName.equals("name") && ! attrName.equals("unit") && ! attrName.equals("currency")) {
             writer.print(" ");
         }
     }

@@ -3,7 +3,9 @@
 <products>
 	<!-- Product 1 -->
 	<product id="pr1" added-on="08-01-2014" category="Laptop" producer="HP" model="ProBook 450">
-		<description>Good Laptop for Games</description>
+		<description>
+			Good Laptop for Games
+		</description>
 		<features>
 			<feature name="CPU">Intel Core i5-3230M</feature>
 			<feature name="RAM">4GB DDR 3</feature>

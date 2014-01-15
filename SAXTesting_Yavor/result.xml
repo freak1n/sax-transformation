@@ -3,20 +3,21 @@
     <product id="pr1" added-on="08-01-2014" category="Laptop" producer="HP" model="ProBook 450">
         <description>
             Good Laptop for Games
-        </description>            CPU
-            Intel Core i5-3230M
-            RAM
-            4GB DDR 3
-            mm
-            459
-            mm
-            182.6
-            mm
-            20.4
-            kg
-            2.4
-            BGN
-            1139
-
+        </description>
+        <features>
+            <feature name="CPU">
+                Intel Core i5-3230M
+            </feature>
+            <feature name="RAM">
+                8GB DDR 3
+            </feature>
+        </features>
+        <dimensions>
+            <length unit="mm">459<length>
+            <width unit="mm">182.6<width>
+            <height unit="mm">20.4<height>
+            <weight unit="kg">2.4<weight>
+        </dimensions>
+        <price currency="BGN">1139</price>
     </product>
 </products>
